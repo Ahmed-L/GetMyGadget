@@ -1,0 +1,127 @@
+{% extends "accounts/base.html" %}
+{% block content %}
+<style>
+body {
+  background: #00b09b;
+  background: -webkit-linear-gradient(to right, #00b09b, #96c93d);
+  background: linear-gradient(to right, #00b09b, #96c93d);
+  min-height: 100vh;
+}
+
+.text-gray {
+  color: #aaa;
+}
+</style>
+
+<div class="row text-center text-white mb-5">
+    <div class="col-lg-7 mx-auto">
+      <h1 class="display-4">Search Results</h1>
+      <p class="lead mb-0">Items shown here are based on their market sites.</p>
+    </div>
+  </div>
+{% for n,p,l,i in mylist %}
+<div class="container py-5">
+  <!-- For demo purpose -->
+  <!-- End -->
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+
+      <!-- List group-->
+      <ul class="list-group shadow">
+
+        <!-- list group item-->
+        <li class="list-group-item">
+          <!-- Custom content-->
+          <div class="media align-items-lg-center flex-column flex-lg-row p-3" style="text-overflow: ellipsis; white-space: nowrap; overflow:hidden;">
+            <div class="media-body order-2 order-lg-1" style="text-overflow: ellipsis; white-space: nowrap; overflow:hidden;">
+              <h5 class="mt-0 font-weight-bold mb-2" style="text-overflow: ellipsis; white-space: nowrap; overflow:hidden;">{{n}}</h5>
+              <p class="font-italic text-muted mb-0 small" style="text-overflow: ellipsis; white-space: nowrap; overflow:hidden;">Market: {{l}}</p>
+              <div class="d-flex align-items-center justify-content-between mt-1">
+                <h6 class="font-weight-bold my-2">৳BDT {{p}}</h6>
+                <ul class="list-inline small">
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                  <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                </ul>
+              </div>
+            </div>
+              <a href="{{l}}">
+                <img src="{{i}}" alt="placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
+              </a>
+          </div>
+          <!-- End -->
+        </li>
+        <!-- End -->
+      </ul>
+      <!-- End -->
+    </div>
+  </div>
+</div>
+
+    {% endfor %}
+{% endblock content %}
+    <!--
+
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <div class="my-3 p-3">
+      <h2 class="display-5">Another headline</h2>
+      <p class="lead">And an even wittier subheading.</p>
+    </div>
+    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+  </div>
+  <div class="bg-primary mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+    <div class="my-3 py-3">
+      <h2 class="display-5">Another headline</h2>
+      <p class="lead">And an even wittier subheading.</p>
+    </div>
+    <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+  </div>
+</div>
+
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <div class="my-3 p-3">
+      <h2 class="display-5">Another headline</h2>
+      <p class="lead">And an even wittier subheading.</p>
+    </div>
+    <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+  </div>
+  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <div class="my-3 py-3">
+      <h2 class="display-5">Another headline</h2>
+      <p class="lead">And an even wittier subheading.</p>
+    </div>
+    <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+  </div>
+</div>
+
+<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <div class="my-3 p-3">
+      <h2 class="display-5">Another headline</h2>
+      <p class="lead">And an even wittier subheading.</p>
+    </div>
+    <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+  </div>
+  <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+    <div class="my-3 py-3">
+      <h2 class="display-5">Another headline</h2>
+      <p class="lead">And an even wittier subheading.</p>
+    </div>
+    <div class="bg-white shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+  </div>
+</div> -->
+{% comment %}
+{% for n,p,l,i in mylist %}
+<p>
+    {{n}} {{p}}
+    <a href="{{l}}">
+        <img src="{{i}} ">
+    </a>
+</p>
+{% endfor %}
+{% endblock content %}
+{% endcomment %}

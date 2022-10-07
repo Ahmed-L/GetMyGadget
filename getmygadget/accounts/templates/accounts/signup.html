@@ -1,0 +1,158 @@
+{% extends "accounts/base.html" %}
+{% block content %}
+
+
+<style>
+.form-signin {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: auto;
+}
+
+  .form-control:focus {
+        border-color: #ff80ff;
+        box-shadow: 0px 0px 0px rgba(300, 0, 0, 0.065) inset, 0px 0px 8px rgba(255, 0, 0, 0.5);
+        }
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group > input,
+.form-label-group > label {
+  height: 3.125rem;
+  padding: .75rem;
+}
+
+.form-label-group > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0; /* Override default `<label>` margin */
+  line-height: 1.5;
+  color: #495057;
+  pointer-events: none;
+  cursor: text; /* Match the input under the label */
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::placeholder {
+  color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+  padding-top: 1.25rem;
+  padding-bottom: .25rem;
+}
+
+.form-label-group input:not(:placeholder-shown) ~ label {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Fallback for Edge
+-------------------------------------------------- */
+@supports (-ms-ime-align: auto) {
+  .form-label-group > label {
+    display: none;
+  }
+  .form-label-group input::-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .form-label-group > label {
+    display: none;
+  }
+  .form-label-group input:-ms-input-placeholder {
+    color: #777;
+  }
+}
+</style>
+
+
+<form class="form-signin" method="post"> {% csrf_token %}
+  <div class="text-center mb-4">
+    <!--<img class="mb-4" src="{{ site.baseurl }}/docs/{{ site.docs_version }}/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+    <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+    <p style="color: grey">Please fill up the sign up form</p>
+  </div>
+
+  <div class="form-label-group">
+    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <label for="inputEmail">Email address</label>
+      {% if registration_form.email.errors %}
+      <p style="color: red">{{ registration_form.email.errors }}</p>
+      {% endif %}
+  </div>
+
+    <div class="form-label-group">
+    <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username">
+    <label for="inputUsername">Username</label>
+        {% if registration_form.username.errors %}
+        <p style="color: red">{{ registration_form.username.errors }}</p>
+      {% endif %}
+  </div>
+
+    <div class="form-label-group">
+    <input type="text" name="firstName" id="inputFirstName" class="form-control" placeholder="First Name">
+    <label for="inputFirstName">firstName</label>
+        {% if registration_form.firstName.errors %}
+        <p style="color: red">{{ registration_form.firstName.errors }}</p>
+      {% endif %}
+  </div>
+
+    <div class="form-label-group">
+    <input type="text" name="lastName" id="inputLastName" class="form-control" placeholder="Last Name" required>
+    <label for="inputLastName">Last Name</label>
+        {% if registration_form.lastName.errors %}
+        <p style="color: red">{{ registration_form.lastName.errors }}</p>
+      {% endif %}
+  </div>
+
+    <div class="form-label-group">
+    <input type="password" name="password1" id="inputPassword1" class="form-control" placeholder="Password" required>
+    <label for="inputPassword1">Password</label>
+        {% if registration_form.password1.errors %}
+        <p style="color: red">{{ registration_form.password1.errors }}</p>
+      {% endif %}
+  </div>
+
+  <div class="form-label-group">
+    <input type="password" name="password2" id="inputPassword2" class="form-control" placeholder="Confirm Password" required>
+    <label for="inputPassword2">Confirm password</label>
+      {% if registration_form.password2.errors %}
+      <p style="color: red">{{ registration_form.password2.errors }}</p>
+      {% endif %}
+  </div>
+
+  <button class="btn btn-lg btn-danger btn-block" type="submit">Sign Up</button>
+</form>
+
+{% endblock content %}

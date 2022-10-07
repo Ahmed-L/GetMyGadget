@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Get My Gadget - SRS</title>
+	<style>
+		@media print{
+		  body{ background-color:#FFFFFF; background-image:none; color:#000000 }
+		  #ad{ display:none;}
+		  #btnPrint{ display:none;}
+		  #contentarea{ width:100%;}
+		  
+		  @page {
+			  size: A4;
+			}
+		 
+		  
+		  * {
+			color: #000;    
+			background-color: #fff;
+			@include box-shadow(none);
+			@include text-shadow(none);
+			}
+			
+			.noPrint{
+			display: none !important;
+			}
+		}
+		* {
+		   box-sizing: border-box;
+		}
+		.column {
+		  float: left;
+		  width: 33.33%;
+		  padding: 5px;
+		}
+		
+		/* Clearfix (clear floats) */
+		.row::after {
+		  content: "";
+		  clear: both;
+		  display: table;
+		}
+		
+		body {
+			padding: 30px;
+		}
+
+		.cover {
+			padding-right: 20px;
+			padding-top: 50px;
+		}
+
+		.cover * {
+
+			text-align: right;
+		}
+
+		h1 {
+			font-size: 45px;
+		}
+
+		h2 {
+			font-size: 35px
+		}
+
+		h3 {
+			font-size: 30px;
+		}
+
+		h4 {
+			font-size: 25px;
+		}
+
+		h5 {
+			font-size: 18px;
+		}
+		a{
+			color: blue;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:hover {
+			color: red;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+
+		.toc_holder {
+			border-bottom: 2px dotted #333;
+			clear: both;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		.toc_holder div:nth-child(1) {
+			display: inline-block;
+		}
+
+		.toc_holder div:nth-child(2) {
+			display: inline-block;
+			float: right;
+		}
+
+
+		.toc_sub {
+
+			display: block;
+			clear: both;
+			padding-left: 40px;
+			margin-bottom: 10px;
+		}
+
+		.new_page {
+			page-break-after: always;
+		}
+
+
+		@media print {
+			input#btnPrint {
+				display: none;
+				ß
+			}
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="cover new_page" style="text-align: right; display: block;">
+		<h1>Software Requirements Specification</h1>
+		<h3>for</h3>
+		<h1>Get My Gadget</h1>
+		<h4>Version 1.0</h4>
+		<h4>Prepared by </h4>
+		<h5>Ahmed Al Jawad</h5>	
+		<h5>Faisal Hossain</h5>		
+		<h5>Md. Alamin Hossain</h5>				
+		<h4>Nov 22, 2020</h4>
+
+		<button id="btnPrint" style="margin-top: 20px; padding: 10px 20px" onclick="window.print()">Print</button>
+
+	</div>
+
+	<br />
+
+	<div class="table_of_contents new_page">
+
+
+		<h4>Table of Contents</h4>
+		<div class="toc_holder">
+			<div>Table of Contents</div>
+			<div>i</div>
+		</div>
+
+		<div class="toc_holder">
+			<div>Revision History</div>
+			<div>ii</div>
+		</div>
+
+
+		<div class="toc_holder">
+			<div><a href ='#1'>1. Introduction </a> </div>
+			<div>1</div>
+		</div>
+
+		<div class="toc_sub">
+			<div class="toc_holder">
+				<div><a href ='#1.1'>1.1 Purpose </a> </div>
+				<div>4</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#1.2'>1.2 Document Conventions </a></div>
+				<div>4</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#1.3'>1.3 Intended Audience and Reading Suggestions </a></div>
+				<div>4</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#1.4'>1.4 Product Scope </a></div>
+				<div>4</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#1.5'>1.5 References </a></div>
+				<div>4</div>
+			</div>
+		</div>
+
+		<div class="toc_holder">
+			<div><a href ='#2'>2. Overall Description</a></div>
+			<div>5</div>
+		</div>
+		<div class="toc_sub">
+			<div class="toc_holder">
+				<div><a href ='#2.1'>2.1 Product Perspective </a></div>
+				<div>5</div>
+			</div>
+			<div class="toc_holder">
+				<div><a href ='#2.2'>2.2 Product Functions</a></div>
+				<div>5</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#2.3'>2.3 User Classes and Characteristics</a></div>
+				<div>5</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#2.4'>2.4 Operating Environment </a></div>
+				<div>6</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#2.5'>2.5 Design and Implementation Constraints </a></div>
+				<div>6</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#2.6'>2.6 User Documentation</a></div>
+				<div>6</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#2.7'>2.7 Assumptions and Dependencies </a></div>
+				<div>6</div>
+			</div>
+		</div>
+
+		<div class="toc_holder">
+			<div><a href ='#3'>3. External Interface Requirements </a></div>
+			<div>7</div>
+		</div>
+		<div class="toc_sub">
+			<div class="toc_holder">
+				<div><a href ='#3.1'>3.1 User Interfaces </a></div>
+				<div>7</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#3.2'>3.2 Hardware Interfaces </a></div>
+				<div>7</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#3.3'>3.3 Software Interfaces</a> </div>
+				<div>7</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#3.4'>3.4 Communications Interfaces </a></div>
+				<div>7</div>
+			</div>
+		</div>
+
+
+		<div class="toc_holder">
+			<div><a href ='#4'>4. System Features </a></div>
+			<div>9</div>
+		</div>
+		<div class="toc_sub">
+			<div class="toc_holder">
+				<div><a href ='#4.1'>4.1 Create Account </a></div>
+				<div>9</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#4.2'>4.2 Update Database </a></div>
+				<div>9</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#4.3'>4.3 Search Gadget </a></div>
+				<div>10</div>
+			</div>
+			
+			<div class="toc_holder">
+				<div><a href ='#4.4'>4.4 View Trending Gadget</a></div>
+				<div>11</div>
+			</div>
+		</div>
+
+		<div class="toc_holder">
+			<div><a href ='#5'>5. Other Nonfunctional Requirements</a> </div>
+			<div>13</div>
+		</div>
+		<div class="toc_sub">
+			<div class="toc_holder">
+				<div><a href ='#5.1'>5.1 Performance Requirements </a></div>
+				<div>13</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#5.2'>5.2 Safety Requirements</a></div>
+				<div>13</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#5.3'>5.3 Security Requirements</a></div>
+				<div>13</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#5.4'>5.4 Software Quality Attributes</a></div>
+				<div>13</div>
+			</div>
+
+			<div class="toc_holder">
+				<div><a href ='#5.5'>5.5 Business Rules</a></div>
+				<div>13</div>
+			</div>
+		</div>
+
+		<div class="toc_holder">
+			<div><a href ='#6'>6. Other Requirements</a></div>
+			<div>14</div>
+		</div>
+
+		<div class="toc_holder">
+			<div><a href ='#AA'>Appendix A: Glossary</a></div>
+			<div>14</div>
+		</div>
+
+		<div class="toc_holder">
+			<div><a href ='#AB'>Appendix B: Analysis Models</a> </div>
+			<div>14</div>
+		</div>
+		
+		<div class="toc_holder">
+			<div><a href ='#AC'>Appendix C: To Be Determined List</a> </div>
+			<div>14</div>
+		</div>
+	</div>
+
+
+	<div class="new_page">
+
+		<h3 id='1'>1. Introduction</h3>
+		<h4 id='1.1'>1.1 Purpose</h4>
+		<p>
+			This document serves the purpose of providing a comprehensive overview of our software, 'Find My Gadget'. This
+			includes describing the user interface, system's primary uses and software requirements, which will aid developers
+			with a clarified understanding of our software architecture and implementations.
+		</p>
+
+		<h4 id='1.2'>1.2 Document Conventions</h4>
+		<p>
+			Every requirement statement is assumed to have its own priority. Bold texts are used to emphasize section
+			and sub-section headings, and highlighted words are arranged in the glossary.
+		</p>
+
+
+		<h4  id='1.3'>1.3 Intended Audience and Reading Suggestions </h4>
+		<p>This document is prepared in a sequential order and is intended for software developers and designers, project managers,
+			testers, as well as any individual user who needs to understand the basic system architecture and its specifications. </p>
+
+
+		<h4  id='1.4'>1.4 Product Scope</h4>
+		<p>'Find My Gadget' is an online market-based product comparator that scraps electronic gadget models and provides optimized
+			purchase solution for all the users and also generates a notion for trending gadgets to help its users reach out to trending
+			products.</p>
+
+		<p>It is considered that the users are located in Bangladesh, and the features of the system are designed to be more
+			appropriate to Bangladeshi netizens.</p>
+		<h4  id='1.5'>1.5 References</h4>
+        <a style="color:black;" href="https://www.djangoproject.com/start/overview/">Python Django Framework</a><br>
+        <a style="color:black;" href="https://firebase.google.com/">Google Firebase Backend Service</a>
+
+	</div>
+
+	<!-- Overall Description -->
+
+	<div class="new_page">
+		<h3 id='2'>2. Overall Perspective</h3>
+		<h4 id='2.1'>2.1 Product Perspective</h4>
+		<p>	A distributed gadget database system stores the following information. </p>
+			<p>• To create a web scraper to crawl through and extract data relating to gadgets from websites.</p>
+			<p>• To log the findings in a database for further manipulation.</p>
+			<p>• To develop a web application to use as a front end and allow the user to operate the web scraper through an intuitive interface.</p>
+			<br>
+			<p>The deliverables for this project are:</p>
+			<p>• Web scraper</p>
+			<p>• Database</p>
+			<p>• Web application</p>
+			<p>• Android App</p>
+		<h4 id='2.2'>2.2 Product Functions</h4>
+		<p>The major functions of the product are –
+			<ul>
+				<li>Shows user some of the trending gadgets.</li>
+				<li>Allows the user search for gadgets, existing in different websites.</li>
+				<li>Depending on the searching criteria, it shows a list of product.</li>
+				<li>Users can search using voice command and image search.</li>
+			</ul>
+		Here is a simple workflow diagram that shows some of the function and workflow:
+		<div class="row">
+			  <div class="column">
+				<p><img src="img/workflow.png" alt="workflow_img"  style="width:100%" > </p>
+			  </div>
+		</div>
+		</p>
+		<h4 id='2.3'>2.3 User Classes and Characteristics</h4>
+		<p>User classes are:
+			<ol>
+				<li>Customer:<br>
+					<ul>
+						<li>Customers will mostly use the web appliciation to get there desired gadgetgadget depending on there particular criteria available for them or see trending gadgets.
+						The customers are not expected to be of very technical knowledge and thus the user interface will be made very simple and an easy to understand structure.No educational
+						or technical expertise needed at all.</li>
+					</ul><br>
+				</li>
+				<li>Administrator:<br>
+					<ul>
+						<li>The administrator should have a college degree and experience in data base management system.They should know how to handle database,have the ability to update the
+						informations in the database and manage it accordingly.</li>
+					</ul><br>
+				</li>
+				<li>Developer:<br>
+					<ul>
+						<li>The developers are expected to have high knowledge about software developing and designing.They have to privilege to update and add new features of the app for
+						further enhancement of user interface.</li>
+					</ul><br>
+				</li>
+			</ol>
+		</p>
+		<h4 id='2.4'>2.4 Operating Environment</h4>
+		<p>
+			The software will have two platforms in which it will work, one is the website platform and the other is the android app platform.Distributed database in necessary.Datbase
+			configuration is google firebase.n website platform it will be running with the combination of Python,Django,SQL. And on the android platform it will be running with the
+			use of Java, PHP and Sql.
+		</p><br>
+		<h4 id='2.5'>2.5 Design and Implementation Constraints</h4>
+		<p>As this is a web scrapping basd online application so it mainly dependent on the websites access and there response.If for some reason the websites are down, we wont be able
+		to update our database.Also,The data that has been extracted will first need to be treated so that they can be easily understood. In certain cases, this might take a long time
+		and a lot of energy to complete.	
+		</p><br>
+		<h4 id='2.6'>2.6 User Documentation</h4>
+		<p>The system is designed to be intuitive and user friendly. But if there are further queries, the user can go
+			through the user manual and online video tutorials.</p>
+		<h4 id='2.7'>2.7 Assumptions and Dependencies</h4>
+			<p>It is assumed that the software will work fine as long it is used on an android device or on a web browser.</p>
+			<p>As the software is dependent on scrapping other websites, so as long as other websites are working fine also the backend of the website are unchanged.</p>
+	</div>
+
+	<!-- Interfaces -->
+
+	<div class="new_page">
+
+		<h3 id='3'>3. External Interface Requirements</h3>
+
+		<h4 id='3.1'>3.1 User Interfaces</h4>
+
+		<p>When the user search www.gmg.com the user will see an log in page. if the user doesn’t have an account then the actor 
+		can simply press the create account option. System will response by giving a registration page. The actor provides Name, Email, password,
+		confirm password, phone number and address. By submitting this the information will be collected to 
+		the server and system will take to the log in page. Actor can simply log in by giving email and password.
+		After logged in an actor can view a few the tending products on the home page. actor can search any product 
+		which he wants to view with the best saving price and best offered. The system will fetch these searched products
+		information from various websites and comparing between passed products, the system will show the best saving products 
+		on the screen. <br> The actor can view these products with prices, reviews, vendor and the saving that the actor will make
+		from this from other available websites products. Actor can select any of these by comparing the reviews, prices and other stuffs. 
+		Then this will redirect the actor to the actual webpages on where the actor can view all other details about this product and can
+		buy if the actor wishes to buy this product by competing that web sites criteria. An actor can also view other tends by clicking 
+		this from the home pages. All of this stuff will show the name of the product, images, reviews, vendor and the saving percentage 
+		that the actor can make from this website. The actor can also choose from these viewed products and can buy the actors preferred product.
+		An actor can also search products by images and continue the tasks. After completing all the tasks, the user can log out from this server.
+		This will work from both web version and mobile application. On both version this will work same. </p>
+		
+		
+		<div class="noPrint">
+			<div class="row">
+			  <div class="column">
+				<p><img src="img/login.png" alt="login_markup_img"  style="width:100%" > </p>
+			  </div>
+			  <div class="column">
+				<p><img src="img/homepage.png" alt="homepage_markup_img" style="width:100%" > </p>
+			  </div>
+			  
+			 </div>
+			<div class="row">
+			  <div class="column">
+				<p><img src="img/searched_products.png" alt="products_markup_img" style="width:100%"  > </p>
+			  </div>
+			  <div class="column">
+				<p><img src="img/trending.png" alt="trending_markup_img" style="width:100%"> </p>
+			  </div>
+			</div>			
+		</div>
+
+		
+
+		<h4 id='3.2'>3.2 Hardware Interfaces</h4>
+		<p>As this is about web version and mobile application. Neither the mobile application nor the web version has any special hardware requirements.
+		So, the system will not have any hardware interface.<br>
+		Since the application must run over the internet, all the hardware shall require to connect internet will be hardware 
+		interface for the system. As for e.g. Modem, WAN – LAN, Ethernet Cross-Cable and the desired design constraints should meet 
+		into the functionality of hardware and software.  </p>
+
+		<h4  id='3.3'>3.3 Software Interfaces</h4>
+
+		<p>This software is web version and mobile application based. both of this version has to run from a web server and initial loading time depends on the internet speed which also depends on the device from which the product is run.
+		<br>The android version of the mobile should be above version 6 and the browser should support at least 80% of HTML5. 
+		The web development tools should conform either IBM's CUA standards or Microsoft's GUI standards.
+		There is no memory requirement from user end of this application..
+		</p>
+
+
+		<h4 id='3.4'>3.4 Communications Interfaces</h4>
+
+		<p>There are many types of interfaces as such supported by the E-Store software system namely; User Interface, Software Interface and Hardware Interface.
+		The protocol used shall be HTTP for the intranet communication will be through TCP/IP protocol suite.
+		The Port number used will be 80.
+		There shall be logical address of the system in IPv4 format. </p>
+
+
+	</div>
+
+	<!-- System Features -->
+
+	<div class="new_page">
+
+		<h3 id='4'>4. System Features
+			<p>
+				
+				<h4 id='4.1'> 4.1 Create Account</h4>
+				<p><h5>4.1.1 Description and priority:</h5> The user will be able to see a form with some fields, below a submission button and if the user already has an existed account.
+					User can log in. To create an account user must provide Name, password, Email, Phone number and address.</p>
+				<p><h5>4.1.2 Stimulus/Response</h5> Use case: Create Account<br>
+					</br>Actor: User<br>
+					</br> Type: Primary<br>
+					</br>Purpose: Register user information.</p>
+				<!-----Table for expanded use case----->
+				<h5>4.1.3 Typical Course of events:</h5>
+				<table style="width:100%" border="1">
+					<tr>
+						<th>Actor Actions</th>
+						<th>System Response</th>
+					</tr>
+					<tr>
+						<td>1. User goes to www.gmg.com </td>
+						<td>2. System responds with a login page </td>
+					</tr>
+					<tr>
+						<td>3. Actor press create account button </td>
+						<td>4. System direct the actor to a sign up form </td>
+					</tr>
+					<tr>
+						<td>5. Actor enters Name, email, password, confirm password, phone number and address</br>
+							6. Actor select Submit button </td>
+						<td>7. System verify actor credentials and redirect to the login page </td>
+					</tr>
+
+				</table>
+				<h5> Alternative Course of events:</h5>
+				<p> 7.1.  Any field left blank: system redirect to signup form with a message “All Field must be filled up”</p>
+				<p> 7.2. Email not match with regex: system redirect to signup form with a message “ Please! Enter a valid email”</p>
+				<p> 7.3. Password is less than 6 digits: System shows an error message “Password must have at least 6 digits” and redirect to signup page</p>
+				<p> 7.4. Password and confirm password not match: System shows an error message “Password and confirm password did not match” and redirect to signup page</p>
+				
+				
+				
+				<h4 id='4.2'>4.2 Update Database</h4> 
+				<p><h5>4.2.1 Description and priority:</h5> As the data models are stored in a database for easy acess and faster fetching time,
+					the database needs to be updated at specific time intervals to ensure reliable data.
+					This is a high-priority action as the entire application depends on this feature to
+					carry out other processes.</p>
+				<p><h5>4.2.2 Stimulus/Response</h5> Use case: Update Database <br>
+					</br>Actor: System<br>
+					</br> Type: Primary<br>
+					</br>Purpose: The system has to carry out this action as updating the database is necessary
+						for the entire application to carry out other functions.
+				</p>
+				<h5>4.2.3 Typical Course of events:</h5>
+				<table style="width:100%" border="1">
+					<tr>
+						<th>Actor Actions</th>
+						<th>System Response</th>
+					</tr>
+					<tr>
+						<td>1:System update timer initiates scraping, based on given function. </td>
+						<td>2:System retrieves the new data and updates it into the database. </td>
+					</tr>
+
+				</table>
+				<h5> Alternative Course of events:</h5>
+				<p>1.1:Scraping fails to retieve data, system handles the error and
+					keeps existing data.</p>
+					
+
+				<h4 id='4.3'>4.3 Search Gadget</h4>
+				<p><h5>4.3.1 Description and priority:</h5> A dedicated input field is provided in the dashboard for users to search the desired
+				gadget product. The performed action redirects user to the product page to be able to
+				view the contents. The priority is high since this is one of the core purpose of the 
+				application.</p>
+				<p><h5>4.3.2 Stimulus/Response</h5>Use case:Search Gadget <br>
+					</br>Actor: User<br>
+					</br> Type: Primary<br>
+					</br>Purpose: Carry out a search on a product and get the result generated by the system.</p>
+				<h5>4.3.3 Typical Courses of Events:</h5>
+				<table style="width:100%" border="1">
+					<tr>
+						<th>Actor Actions</th>
+						<th>System Response</th>
+					</tr>
+					<tr>
+						<td>1:User accesses the home page.</td>
+						<td> 2:System redirects user to the home page, which contains the search box.</td>
+					</tr>
+					<tr>
+						<td>3. User performs a search via the search box.</td>
+						<td>4. System takes the input, fetches content and redirects user to a new page with product details. </td>
+					</tr>
+				</table>
+				
+				<h5> Alternative Course of events:</h5>
+				<p>3.1 The search input field is empty, the system prevents the action.</p>
+				<p>3.3 Injection command is entered, system handles it safely via parameterized statement.</p>
+				
+				
+				<h4 id='4.4'>4.4 View Trending Gadget</h4>
+				<p><h5>4.4.1 Description and priority:</h5> The user will be able to get a view of some of the trending gadgets that are featured
+				in most of the websites.This view will help the user to know about new gadget and be updated.
+				The priority of this feature is medium.Because user will be benefited by having a overview on new trending gadgets</p>
+				<p><h5>4.4.2 Stimulus/Response</h5>Use case:View Trending Gadget <br>
+					</br>Actor: User<br>
+					</br> Type: Primary<br>
+					</br>Purpose: The user can see some of the trending gadget list with an intereactive user interface.
+					So that our user can have an updated overview on some of the trends in gadget</p>
+				<h5>4.4.3 Typical Courses of Events:</h5>
+				<table style="width:100%" border="1">
+					<tr>
+						<th>Actor Actions</th>
+						<th>System Response</th>
+					</tr>
+					<tr>
+						<td>1.User goes to www.gmg.com </td>
+						<td> 2.System responds with a login page</td>
+					</tr>
+					<tr>
+						<td>3.Actor enters username & password and
+						presses the login button</td>
+						<td>4.System verify actor credentials and redirect
+							to a intereactive homepage with a navigation menu</td>
+					</tr>
+					<tr>
+						<td>5.Actor selects 'View Trends' from the naviagation MENU	</td>
+						<td>6.System responds with a page consists list of trending gadget	</td>
+					</tr>
+					<tr>
+						<td>7.Actor select one of the picture of gadget from that page	</td>
+						<td>8.System redirect to that particular website page from where the gadget data has been taken 	</td>
+					</tr>
+					<tr>
+						<td>9.Actor select logout from the menu 	</td>
+						<td> 10.System log out the actor from the menu and redirect to the login page	</td>
+					</tr>	
+				</table>
+				
+				<h5> Alternative Course of events:</h5>
+				<p>4.1 Credentials are wrong. System ask the actor to re-enter credentials</p>
+				<p>8.1 The redirected page is not available at tha moment.System shows an error meassage </p>
+				
+				
+				
+				
+	</div>
+
+
+	<!-- section 5.* -->
+
+
+	<div class="new_page">
+		<h3 id='5'>5. Other Non-Functional Requirements</h3>
+		<h4 id='5.1'>5.1 Perfomance Requirement</h4>
+		<p> Interface between the user and the software will have some resonable response time based on the internet connection.As, it will crawl real time information fron other webpages,
+			a decent amount of response time is necessary for this product to process the information properly and in adequate manner.</p>
+
+
+		<h4 id='5.2'>5.2 Safety Requirements</h4>
+		<p>The application will not affect data stored outside of its server nor will it affect any other web applications. It cannot cause any damage to the phone or its internal components.
+			The only potential safety concern associated with this application applies to virtually all handset apps. This app should not be used while operating a vehicle or in any other situation
+			where the user's attention must be focused elsewhere. </p>
+		
+
+		<h4 id='5.3'>5.3 Security Requirement</h4>
+		<p> Only the administrator has the rights to manage any changes in the system. Only the administrator has the rights to manage any changes in the stored data set.Other than that,Workspace of
+			the user should only be accessed through user own credentials and any other user should not be able to access to the user private data.Also,The Application shall not grant access to an
+			unauthorized user and the Application shall not communicate with any other devices or servers while in use by the user.</p>
+
+
+		<h4 id='5.4'>5.4 Software Quality Attributes</h4>
+		<ul>
+			<li>AVAILABILITY : As the system will be hosted in cloud servers it will be available all the time for users.</li>
+			<li> CORRECTNESS: The system will pull appropriate information from the webpages to provide accurate information based on the users request and show them.</li>
+			<li> MAINTAINABILITY: The system will store and maintain all user information.</li>
+			<li> Portability. The software is a web-based application and platform independent which ensures the portability.</li>
+		</ul>
+
+
+		<h4  id='5.5'>5.5 Business Rules</h4><!--needs to be Editted -->
+		<p> Not applicable as the recommendation system is not doing any explicit business with any company or personnel at this moment.</p>
+	</div>
+
+
+
+	<!-- part 6 starts here !-->
+
+	<div class="new_page">
+
+		<h3 id='6'> 6. Other Requirements </h3>
+		<h4> Database : </h4>
+		<p> All the data will be stored in a relational database. </p>
+
+		<h4  id='AA'>Appendix A: Glossary </h4>
+		<table style="width:100%" border="1">
+			<tr>
+				<th>Term</th>
+				<th>Definition</th>
+			</tr>
+			<tr>
+				<td>Business Analyst(BA) </td>
+				<td>A person responsible for identifying the business needs of their clients and stakeholders,
+				to determine solutions to business problems </td>
+			</tr>
+			<tr>
+				<td>Class Diagram </td>
+				<td>A type of static structure diagram that describes the structure of a system by showing the system's classes, their attributes, operations (or methods),
+				and the relationships among the classes </td>
+			</tr>
+			<tr>
+				<td>Dependency </td>
+				<td>A reliance of some kind, of one set of components on another set of components, or one set of 
+				requirements or other artifacts on another set </td>
+			</tr>
+			<tr>
+				<td>Use Case </td>
+				<td>A sequence of transactions in a dialogue between an actor and a component or system with a tangible result, where an actor can be a user 
+				or anything that can exchange information with the system. </td>
+			</tr>
+		</table>
+		<h4  id='AB'>Appendix B: Analysis Models </h4>
+		Here is the use case diagram:
+		<div class="row">
+			  <div class="column">
+				<p><img src="img/usecase.png" alt="usecase diagram"  style="width:100%" > </p>
+			  </div>
+		</div>
+		<h4  id='AC'>Appendix C: To Be Determined List </h4>
+		<p> N/A </p>
+
+	</div>
+
+
+</body>
+
+</html>
